@@ -1,50 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`tailwindcss`]
+# My Portfolio
 
-## Getting Started
+A personal portfolio site built with Next.js and Tailwind CSS.
 
-First, run the development server:
+[![CI](https://github.com/Menzi-Thami/My-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Menzi-Thami/My-Portfolio/actions/workflows/ci.yml)
+
+**Live:** https://my-portfolio-five-lyart-52.vercel.app/
+
+## Stack
+
+- **Next.js 15** (Pages Router) with **React 19**
+- **Tailwind CSS 3** for styling
+- **Headless UI 2** and **react-icons 5** for components and iconography
+- Deployed on **Vercel**; also builds to static output for GitHub Pages
+
+Pages: home, services, work, clients, contact.
+
+## Running locally
+
+Node 22 is required — it is pinned in `engines` and `.nvmrc` because Vercel's default
+runtime once diverged from the local one and broke the production build while local builds
+stayed green.
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+npm run dev     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+npm run build   # production build
+npm start       # serve the production build
+```
 
-Bootstrapped using Tailwind CSS.
-Install tailwind:
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-Configure your template path:
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  Add the Tailwind directives to your CSS:
-  @tailwind base;
-@tailwind components;
-@tailwind utilities;
-npm run dev
+## Notes
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Tailwind is deliberately held at v3. Version 4's `@import "tailwindcss"` entry point fails
+under Next 15's webpack CSS pipeline, and v4 also changes default border, ring and shadow
+rendering — a visual migration rather than a drop-in upgrade.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+`package.json` has a `lint` script but ESLint is not a dependency, so CI does not run it.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Licence
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[MIT](LICENSE).
