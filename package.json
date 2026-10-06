@@ -25,5 +25,9 @@
   },
   "engines": {
     "node": "22.x"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6",
+    "yaml": "^1.10.3"
   }
 }
