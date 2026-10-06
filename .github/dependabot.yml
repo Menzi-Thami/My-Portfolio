@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    # Tailwind v4 breaks the build under Next's webpack CSS loader and changes default
+    # border/ring/shadow styles, so it needs a deliberate migration, not a bot bump.
+    ignore:
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
     groups:
       npm-minor-patch:
         update-types: ["minor", "patch"]
